@@ -2,21 +2,26 @@ const http = require('http')
 
 http.createServer((req, res) => {
     switch(req.url){
-        case '/hello':console.log("hello")
+        case '/hello':console.log("哈囉")
         break
-        case '/name':console.log("FengAn Liu")
+        case '/name':console.log("劉鳳安")
         break
         case '/id':console.log("110510502")
         break
     }
 
-    res.setHeader('Content-Type', 'text/plain')
     switch(req.url){
-        case '/hello':res.write("hello")
+        case '/hello':
+        res.writeHead(200, {'Content-Type': 'text/html ; charset=utf-8'})
+        res.write("哈囉")
         break
-        case '/name':res.write("FengAn Liu")
+        case '/name':
+        res.writeHead(200, {'Content-Type': 'text/html ; charset=utf-8'})
+        res.write("劉鳳安")
         break
-        case '/id':res.write("110510502")
+        case '/id':
+        res.writeHead(200, {'Content-Type': 'text/html ; charset=utf-8'})
+        res.write("110510502")
         break
         default:res.statusCode = 404;
     }
