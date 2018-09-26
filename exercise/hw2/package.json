@@ -1,0 +1,11 @@
+{
+  "name": "test_lodash",
+  "version": "1.0.0",
+  "description": "test npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Michael Liu",
+  "license": "MIT"
+}

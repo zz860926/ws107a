@@ -17,8 +17,7 @@ const server = http.createServer(function (req, res) {
   }).on('data', (chunk) => {
     body.push(chunk);
   }).on('end', () => {
-    body = Buffer.concat(body).toString();
-    console.log('body=', body)
+    console.log('body',decodeURIComponent(body))
     // At this point, we have the headers, method, url and body, and can now
     // do whatever we need to in order to respond to this request.
   })
@@ -43,7 +42,7 @@ const server = http.createServer(function (req, res) {
           return
         }
         if (/\.html?$/.test(path.pathname))
-          res.writeHead(200, {'Content-Type': 'text/html'})
+          res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
         else
           res.writeHead(200)
         res.write(file, 'binary')
